@@ -2,23 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Service;
+use App\Models\Outlet;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
     /**
-     * Halaman Beranda (Menu 1).
+     * Menu 1: Beranda GIOI Group.
      */
     public function home()
     {
-        $featuredServices = Service::take(3)->get();
+        $featuredOutlets = Outlet::take(3)->get();
 
-        return view('pages.home', compact('featuredServices'));
+        return view('pages.home', compact('featuredOutlets'));
     }
 
     /**
-     * Halaman Tentang Kami (Menu 2).
+     * Menu 2: Tentang Kami (Our Brand & Story Anthony Sadeli).
      */
     public function about()
     {
@@ -26,11 +26,12 @@ class PageController extends Controller
     }
 
     /**
-     * Halaman Kontak (Menu 4).
+     * Menu 4: Kontak & Reservasi.
      */
     public function contact()
     {
-        return view('pages.contact');
+        $allOutlets = Outlet::select('name', 'rsvp', 'address', 'city')->get();
+
+        return view('pages.contact', compact('allOutlets'));
     }
 }
-

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Service extends Model
+class Outlet extends Model
 {
     use HasFactory;
 
@@ -14,7 +14,7 @@ class Service extends Model
      *
      * @var string
      */
-    protected $table = 'services';
+    protected $table = 'outlets';
 
     /**
      * The attributes that are mass assignable.
@@ -24,11 +24,13 @@ class Service extends Model
     protected $fillable = [
         'name',
         'slug',
-        'category',
-        'description',
-        'price',
-        'duration',
+        'brand',
+        'city',
+        'address',
+        'capacity',
+        'rsvp',
         'image',
+        'description',
     ];
 }
 

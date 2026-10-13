@@ -3,49 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Beranda') - PT Nusantara Solusi Digital</title>
+    <title>@yield('title', 'Beranda') - GIOI GROUP | Restaurant & Lifestyle</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen font-sans antialiased">
+<body class="bg-[#FAF7F2] text-stone-800 flex flex-col min-h-screen font-sans antialiased selection:bg-amber-100 selection:text-amber-900">
 
-    <!-- Header & Navigasi (4 Menu Wajib) -->
-    <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50 shadow-xs">
+    <!-- Header & 4 Menu Navigasi Utama -->
+    <header class="bg-white/95 backdrop-blur-md border-b border-stone-200 sticky top-0 z-50 shadow-xs">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <!-- Brand / Logo -->
+                
+                <!-- Brand / Logo GIOI GROUP -->
                 <a href="{{ route('home') }}" class="flex items-center space-x-3 group">
-                    <div class="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white font-black text-xl shadow-md shadow-blue-500/20 group-hover:scale-105 transition">
-                        N
+                    <div class="w-11 h-11 rounded-full bg-[#1C2D27] flex items-center justify-center text-amber-200 font-serif font-black text-2xl shadow-sm tracking-wider">
+                        G
                     </div>
                     <div>
-                        <span class="text-xl font-bold tracking-tight text-slate-900 group-hover:text-blue-600 transition">Nusantara</span>
-                        <span class="text-xs block font-semibold text-blue-600 tracking-wider uppercase">Solusi Digital</span>
+                        <span class="text-2xl font-serif font-bold tracking-widest text-[#1C2D27] uppercase">GIỎI</span>
+                        <span class="text-[10px] block font-semibold text-stone-500 tracking-[0.25em] uppercase">Group &bull; 2025</span>
                     </div>
                 </a>
 
-                <!-- Desktop Navigation Menu (4 Menu) -->
-                <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                <!-- Desktop Navigation Menu (4 Menu Wajib) -->
+                <nav class="hidden md:flex items-center space-x-2">
                     <a href="{{ route('home') }}"
-                       class="px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 {{ request()->routeIs('home') ? 'bg-blue-600 text-white shadow-sm shadow-blue-500/30' : 'text-slate-600 hover:text-blue-600 hover:bg-slate-100' }}">
+                       class="px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 {{ request()->routeIs('home') ? 'bg-[#1C2D27] text-amber-100 shadow-sm' : 'text-stone-700 hover:text-[#1C2D27] hover:bg-stone-100' }}">
                         Beranda
                     </a>
                     <a href="{{ route('about') }}"
-                       class="px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 {{ request()->routeIs('about') ? 'bg-blue-600 text-white shadow-sm shadow-blue-500/30' : 'text-slate-600 hover:text-blue-600 hover:bg-slate-100' }}">
+                       class="px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 {{ request()->routeIs('about') ? 'bg-[#1C2D27] text-amber-100 shadow-sm' : 'text-stone-700 hover:text-[#1C2D27] hover:bg-stone-100' }}">
                         Tentang Kami
                     </a>
-                    <a href="{{ route('services.index') }}"
-                       class="px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 {{ request()->routeIs('services.*') ? 'bg-blue-600 text-white shadow-sm shadow-blue-500/30' : 'text-slate-600 hover:text-blue-600 hover:bg-slate-100' }}">
-                        Layanan
+                    <a href="{{ route('outlets.index') }}"
+                       class="px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 {{ request()->routeIs('outlets.*') ? 'bg-[#1C2D27] text-amber-100 shadow-sm' : 'text-stone-700 hover:text-[#1C2D27] hover:bg-stone-100' }}">
+                        Outlet Kami
                     </a>
                     <a href="{{ route('contact') }}"
-                       class="px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 {{ request()->routeIs('contact') ? 'bg-blue-600 text-white shadow-sm shadow-blue-500/30' : 'text-slate-600 hover:text-blue-600 hover:bg-slate-100' }}">
-                        Kontak
+                       class="px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 {{ request()->routeIs('contact') ? 'bg-[#1C2D27] text-amber-100 shadow-sm' : 'text-stone-700 hover:text-[#1C2D27] hover:bg-stone-100' }}">
+                        Kontak & RSVP
                     </a>
                 </nav>
 
+                <!-- CTA RSVP Button (Desktop) -->
+                <div class="hidden lg:block">
+                    <a href="{{ route('outlets.index') }}"
+                       class="px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase bg-amber-700 hover:bg-amber-800 text-white transition shadow-sm">
+                        Cari Restoran
+                    </a>
+                </div>
+
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" type="button" class="p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none" aria-label="Toggle menu">
+                    <button id="mobile-menu-btn" type="button" class="p-2 rounded-lg text-stone-700 hover:bg-stone-100 focus:outline-none" aria-label="Toggle menu">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path id="menu-icon-open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                             <path id="menu-icon-close" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -56,22 +65,22 @@
         </div>
 
         <!-- Mobile Navigation Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-5 space-y-2">
+        <div id="mobile-menu" class="hidden md:hidden border-t border-stone-200 bg-white px-4 pt-3 pb-5 space-y-2">
             <a href="{{ route('home') }}"
-               class="block px-3 py-2.5 rounded-lg text-base font-semibold {{ request()->routeIs('home') ? 'bg-blue-600 text-white' : 'text-slate-700 hover:bg-slate-100' }}">
+               class="block px-4 py-2.5 rounded-lg text-base font-medium {{ request()->routeIs('home') ? 'bg-[#1C2D27] text-amber-100' : 'text-stone-800 hover:bg-stone-50' }}">
                 Beranda
             </a>
             <a href="{{ route('about') }}"
-               class="block px-3 py-2.5 rounded-lg text-base font-semibold {{ request()->routeIs('about') ? 'bg-blue-600 text-white' : 'text-slate-700 hover:bg-slate-100' }}">
+               class="block px-4 py-2.5 rounded-lg text-base font-medium {{ request()->routeIs('about') ? 'bg-[#1C2D27] text-amber-100' : 'text-stone-800 hover:bg-stone-50' }}">
                 Tentang Kami
             </a>
-            <a href="{{ route('services.index') }}"
-               class="block px-3 py-2.5 rounded-lg text-base font-semibold {{ request()->routeIs('services.*') ? 'bg-blue-600 text-white' : 'text-slate-700 hover:bg-slate-100' }}">
-                Layanan
+            <a href="{{ route('outlets.index') }}"
+               class="block px-4 py-2.5 rounded-lg text-base font-medium {{ request()->routeIs('outlets.*') ? 'bg-[#1C2D27] text-amber-100' : 'text-stone-800 hover:bg-stone-50' }}">
+                Outlet Kami
             </a>
             <a href="{{ route('contact') }}"
-               class="block px-3 py-2.5 rounded-lg text-base font-semibold {{ request()->routeIs('contact') ? 'bg-blue-600 text-white' : 'text-slate-700 hover:bg-slate-100' }}">
-                Kontak
+               class="block px-4 py-2.5 rounded-lg text-base font-medium {{ request()->routeIs('contact') ? 'bg-[#1C2D27] text-amber-100' : 'text-stone-800 hover:bg-stone-50' }}">
+                Kontak & RSVP
             </a>
         </div>
     </header>
@@ -81,61 +90,74 @@
         @yield('content')
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-300 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-                <!-- Col 1: Profil Singkat -->
-                <div class="md:col-span-2">
-                    <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold">
-                            N
+    <!-- Footer GIOI GROUP -->
+    <footer class="bg-[#141F1B] text-stone-300 border-t border-stone-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            
+            <!-- Brand Portfolio Badges -->
+            <div class="border-b border-stone-800 pb-10 mb-10">
+                <p class="text-xs uppercase tracking-[0.2em] text-stone-500 font-semibold mb-6 text-center">Portfolio Brands of GIOI Group</p>
+                <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-stone-400 font-serif text-sm">
+                    <span class="hover:text-amber-200 transition">GIỎI Bistro & Cafe</span>
+                    <span class="text-stone-700">&bull;</span>
+                    <span class="hover:text-amber-200 transition">GIỎI Cafe</span>
+                    <span class="text-stone-700">&bull;</span>
+                    <span class="hover:text-amber-200 transition">GIỎI Ocean Gourmet</span>
+                    <span class="text-stone-700">&bull;</span>
+                    <span class="hover:text-amber-200 transition">The Brassey</span>
+                    <span class="text-stone-700">&bull;</span>
+                    <span class="hover:text-amber-200 transition">Shabu Baru</span>
+                    <span class="text-stone-700">&bull;</span>
+                    <span class="hover:text-amber-200 transition">Sinar Mandala (Since 1980)</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                <!-- Col 1: Brand Info -->
+                <div class="md:col-span-2 space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-9 h-9 rounded-full bg-amber-700/80 flex items-center justify-center text-amber-100 font-serif font-black text-lg">
+                            G
                         </div>
-                        <span class="text-xl font-bold text-white tracking-tight">PT Nusantara Solusi Digital</span>
+                        <span class="text-xl font-serif font-bold text-white tracking-widest uppercase">GIỎI GROUP</span>
                     </div>
-                    <p class="text-slate-400 text-sm leading-relaxed max-w-md mb-4">
-                        Mitra terpercaya transformasi digital bisnis di Indonesia. Menyediakan solusi rekayasa perangkat lunak, arsitektur cloud, dan konsultasi IT terintegrasi.
+                    <p class="text-stone-400 text-sm leading-relaxed max-w-md">
+                        Didirikan oleh Anthony Sadeli pada tahun 2016. Memimpin industri hospitality dan kuliner gaya hidup di Indonesia dengan menghadirkan pengalaman bersantap istimewa di Jakarta, Surabaya, dan Bali.
                     </p>
-                    <p class="text-xs text-slate-500">
-                        Jl. Sudirman No. 120, Gedung Menara Digital Lt. 8, Jakarta Selatan 12190
+                    <p class="text-xs text-stone-500">
+                        Southeast Asian Comfort Food & Global Culinary Fusion
                     </p>
                 </div>
 
-                <!-- Col 2: Navigasi Cepat -->
+                <!-- Col 2: Navigasi 4 Menu -->
                 <div>
-                    <h4 class="text-sm font-semibold text-white tracking-wider uppercase mb-4">Navigasi</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="{{ route('home') }}" class="hover:text-blue-400 transition">Beranda</a></li>
-                        <li><a href="{{ route('about') }}" class="hover:text-blue-400 transition">Tentang Kami</a></li>
-                        <li><a href="{{ route('services.index') }}" class="hover:text-blue-400 transition">Layanan Perusahaan</a></li>
-                        <li><a href="{{ route('contact') }}" class="hover:text-blue-400 transition">Hubungi Kami</a></li>
+                    <h4 class="text-xs font-semibold text-amber-200 tracking-widest uppercase mb-4">Navigasi Utama</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="{{ route('home') }}" class="hover:text-amber-100 transition">Beranda</a></li>
+                        <li><a href="{{ route('about') }}" class="hover:text-amber-100 transition">Tentang Kami</a></li>
+                        <li><a href="{{ route('outlets.index') }}" class="hover:text-amber-100 transition">Outlet & Cabang (10 Lokasi)</a></li>
+                        <li><a href="{{ route('contact') }}" class="hover:text-amber-100 transition">Kontak & Reservasi</a></li>
                     </ul>
                 </div>
 
-                <!-- Col 3: Kontak Cepat -->
+                <!-- Col 3: Instagram Resmi -->
                 <div>
-                    <h4 class="text-sm font-semibold text-white tracking-wider uppercase mb-4">Kontak</h4>
-                    <ul class="space-y-2 text-sm text-slate-400">
-                        <li class="flex items-center space-x-2">
-                            <span>📧</span>
-                            <span>info@nusantaradigital.id</span>
-                        </li>
-                        <li class="flex items-center space-x-2">
-                            <span>📞</span>
-                            <span>+62 812-3456-7890</span>
-                        </li>
-                        <li class="flex items-center space-x-2">
-                            <span>⏰</span>
-                            <span>Senin - Jumat: 09:00 - 18:00</span>
-                        </li>
+                    <h4 class="text-xs font-semibold text-amber-200 tracking-widest uppercase mb-4">Follow Us on Instagram</h4>
+                    <ul class="space-y-1.5 text-xs text-stone-400">
+                        <li><a href="https://instagram.com/GIOIjakarta" target="_blank" class="hover:text-amber-200 transition">@GIOIjakarta</a></li>
+                        <li><a href="https://instagram.com/GIOI.cafe" target="_blank" class="hover:text-amber-200 transition">@GIOI.cafe</a></li>
+                        <li><a href="https://instagram.com/GIOIoceangourmet" target="_blank" class="hover:text-amber-200 transition">@GIOIoceangourmet</a></li>
+                        <li><a href="https://instagram.com/TheBrassey" target="_blank" class="hover:text-amber-200 transition">@TheBrassey</a></li>
+                        <li><a href="https://instagram.com/restomandala" target="_blank" class="hover:text-amber-200 transition">@restomandala</a></li>
+                        <li><a href="https://instagram.com/Shabubaru.id" target="_blank" class="hover:text-amber-200 transition">@Shabubaru.id</a></li>
                     </ul>
                 </div>
             </div>
 
             <!-- Bottom Copyright -->
-            <div class="pt-8 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 space-y-4 sm:space-y-0">
-                <p>&copy; {{ date('Y') }} PT Nusantara Solusi Digital. Seluruh hak cipta dilindungi undang-undang.</p>
-                <p class="bg-slate-800 px-3 py-1 rounded-full text-slate-400">
+            <div class="pt-8 border-t border-stone-800 flex flex-col sm:flex-row justify-between items-center text-xs text-stone-500 space-y-4 sm:space-y-0">
+                <p>&copy; 2025 GIOI GROUP. All rights reserved.</p>
+                <p class="bg-stone-900 border border-stone-800 px-3.5 py-1.5 rounded-full text-stone-400">
                     Tugas Praktikum Rekayasa Web &bull; Pertemuan 7
                 </p>
             </div>
@@ -157,4 +179,3 @@
     </script>
 </body>
 </html>
-
